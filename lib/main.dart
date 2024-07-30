@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_amplify_bedrock/amplifyconfiguration.dart';
 import 'package:flutter_amplify_bedrock/camera_screen.dart';
 import 'package:flutter_amplify_bedrock/home_screen.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 void main() async {
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await _configureAmplify();
 
-    await Permission.camera.request();
     final cameras = await availableCameras();
     runApp(MyApp(
       cameras: cameras,
